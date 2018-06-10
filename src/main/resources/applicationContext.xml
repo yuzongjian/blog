@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">    
         
-	 <context:property-placeholder location="classpath:jdbc.properties" />
+	
 	
 	<!-- 配置数据源 -->
 	<bean id="dataSource"
@@ -22,7 +22,6 @@
 		<property name="username" value="root"/>
 		<property name="password" value="123456"/>
 	</bean>
-
 
 	<!-- 配置mybatis的sqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -102,7 +101,7 @@
     <!-- 配置事务切面 -->  
     <aop:config>  
         <aop:pointcut id="serviceOperation"  
-            expression="execution(* blog.service.*.*(..))" />  
+             expression="execution(* blog.service.*.*(..))" />  
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />  
     </aop:config>  
     
