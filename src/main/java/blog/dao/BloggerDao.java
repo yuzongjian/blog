@@ -1,5 +1,7 @@
 package blog.dao;
 
+import blog.domain.Blogger;
+
 /**
  * 博主Dao接口
  * @author Administrator
@@ -7,4 +9,10 @@ package blog.dao;
  */
 public interface BloggerDao {
 
+	/**
+	 * 通过用户名查询用户
+	 * @param userName
+	 * @return
+	 */
+	public Blogger getByUserName(String userName);
 }

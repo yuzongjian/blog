@@ -1,7 +1,11 @@
 package blog.service.impl;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
+import blog.dao.BloggerDao;
+import blog.domain.Blogger;
 import blog.service.BloggerService;
 
 /**
@@ -12,4 +16,10 @@ import blog.service.BloggerService;
 @Service("BloggerService")
 public class BloggerServiceImpl implements BloggerService{
 
+	@Resource
+	private BloggerDao bloggerDao;
+	
+	public Blogger getByUserName(String userName) {
+		return bloggerDao.getByUserName(userName);
+	}
 }

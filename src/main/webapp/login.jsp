@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>项目申报工作系统</title>
+<title>博客后台管理</title>
 <meta name="author" content="DeathGhost" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css" tppabs="static/css/style.css" />
 <style>
@@ -33,7 +33,6 @@ function error(){
 } 
 
     function checkForm(){
-    	var error=document.getElementById("error").value;
         var userName=document.getElementById("userName").value;
         var password=document.getElementById("password").value;
         var inputCode = document.getElementById("J_codetext").value.toUpperCase();
@@ -105,7 +104,7 @@ $(document).ready(function() {
 	</script>
 </head>
 <body onload="error()">
-<form id="submitForm"  action="Login.do"  method="post" onsubmit="return checkForm()">
+<form id="submitForm"  action="${pageContext.request.contextPath}/blogger/login.do"  method="post" onsubmit="return checkForm()">
 <input type="hidden" value=${error} id="error"> 
 <dl class="admin_login">
  
@@ -114,10 +113,10 @@ $(document).ready(function() {
   <em style = "color:white"> Back-stage management system </em>
  </dt>
  <dd class="user_icon">
-  <input type="text"  id="userName" name="account" placeholder="账号"  class="login_txtbx"/>
+  <input type="text"  id="userName" name="userName" placeholder="账号"   class="login_txtbx" />
  </dd>
  <dd class="pwd_icon">
-  <input type="password"  id="password"  name="password"  placeholder="密码" class="login_txtbx"/>
+  <input type="password"  id="password"  name="password"  placeholder="密码"   class="login_txtbx"/>
  </dd>
  <dd class="val_icon">
   <div class="checkcode">
@@ -131,7 +130,7 @@ $(document).ready(function() {
  </dd>
 
  <dd>
-  <p style = "color:black">© copyright</p>
+  <p style = "color:black">© copyright by yzj</p>
  </dd>
 </dl>
  </form>
