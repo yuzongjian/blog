@@ -20,14 +20,15 @@ import blog.service.BloggerService;
  *
  */
 public class MyRealm extends AuthorizingRealm{
+
 	@Resource
 	private BloggerService bloggerService;
+	
 	/**
 	 * 为当前的登录的用户角色和权限
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -46,4 +47,5 @@ public class MyRealm extends AuthorizingRealm{
 			return null;			
 		}
 	}
+
 }

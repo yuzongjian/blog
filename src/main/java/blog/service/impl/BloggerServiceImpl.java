@@ -8,12 +8,13 @@ import blog.dao.BloggerDao;
 import blog.domain.Blogger;
 import blog.service.BloggerService;
 
+
 /**
  * 博主Service实现类
  * @author Administrator
  *
  */
-@Service("BloggerService")
+@Service("bloggerService")
 public class BloggerServiceImpl implements BloggerService{
 
 	@Resource
@@ -22,4 +23,9 @@ public class BloggerServiceImpl implements BloggerService{
 	public Blogger getByUserName(String userName) {
 		return bloggerDao.getByUserName(userName);
 	}
+
+	public Blogger find() {
+		return   bloggerDao.find();
+	}
+
 }

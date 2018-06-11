@@ -101,7 +101,7 @@
     <!-- 配置事务切面 -->  
     <aop:config>  
         <aop:pointcut id="serviceOperation"  
-             expression="execution(* blog.service.*.*(..))" />  
+            expression="execution(* blog.service.*.*(..))" />  
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />  
     </aop:config>  
     
