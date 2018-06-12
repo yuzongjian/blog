@@ -248,6 +248,13 @@
         <artifactId>lucene-highlighter</artifactId>  
         <version>7.3.1</version>  
     </dependency>  
+    <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+    <!-- 添加jsoup支持，从而读取缩略图 -->
+      <dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.11.3</version>
+     </dependency>
     
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>

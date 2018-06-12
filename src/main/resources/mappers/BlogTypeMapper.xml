@@ -15,5 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM t_blog t1 RIGHT JOIN t_blogType  t2 ON t1.typeId=t2.id 
 		GROUP BY t2.typeName ORDER BY t2.orderNo;
 	</select>
-	
+	<select id="findById" parameterType="Integer" resultMap="BlogTypeResult">
+		select * from t_blogType where id=#{id}
+	</select>
 </mapper> 
