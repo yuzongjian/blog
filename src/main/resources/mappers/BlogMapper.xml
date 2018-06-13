@@ -17,15 +17,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<association property="blogType" column="typeId" select="blog.dao.BlogTypeDao.findById"></association>
 	</resultMap>
 	
+	
 	<select id="countList" resultMap="BlogResult">
-		SELECT 
-		DATE_FORMAT(releaseDate,'%Y年%m月') AS releaseDateStr,COUNT(*) AS blogCount  
-		FROM t_blog GROUP 
-		BY DATE_FORMAT(releaseDate,'%Y年%m月') 
-		ORDER BY  DATE_FORMAT(releaseDate,'%Y年%m月') DESC;
+		SELECT DATE_FORMAT(releaseDate,'%Y年%m月') AS releaseDateStr,COUNT(*) AS blogCount  FROM t_blog GROUP BY DATE_FORMAT(releaseDate,'%Y年%m月') ORDER BY  DATE_FORMAT(releaseDate,'%Y年%m月') DESC;
 	</select>
+	
 	<select id="list" parameterType="Map" resultMap="BlogResult">
 		select * from t_blog
+		<where>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId=#{typeId}
+			</if>
+			<if test="releaseDateStr!=null and releaseDateStr!='' ">
+				and DATE_FORMAT(releaseDate,'%Y年%m月')=#{releaseDateStr}
+			</if>
+		</where>
 		order by releaseDate desc
 		<if test="start!=null and size!=null">
 			limit #{start},#{size}
@@ -34,6 +40,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getTotal" parameterType="Map" resultType="Long">
 		select count(*) from t_blog
+		<where>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId=#{typeId}
+			</if>
+			<if test="releaseDateStr!=null and releaseDateStr!='' ">
+				and DATE_FORMAT(releaseDate,'%Y年%m月')=#{releaseDateStr}
+			</if>
+		</where>
 	</select>
 	
+	<select id="findById" parameterType="Integer" resultMap="BlogResult">
+		select * from t_blog where id=#{id}
+	</select>
+	
+	<update id="update" parameterType="Blog">
+		update t_blog
+		<set>
+			<if test="clickHit!=null">
+				clickHit=#{clickHit},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+	<select id="getLastBlog" parameterType="Integer" resultMap="BlogResult">
+		SELECT * FROM t_blog WHERE id&lt;#{id} ORDER BY id DESC LIMIT 1;
+	</select>
+	
+	<select id="getNextBlog" parameterType="Integer" resultMap="BlogResult">
+		SELECT * FROM t_blog WHERE id&gt;#{id} ORDER BY id ASC LIMIT 1;
+	</select>
 </mapper> 
