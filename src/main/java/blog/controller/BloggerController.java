@@ -28,7 +28,7 @@ public class BloggerController {
 	@RequestMapping("/login")
 	public String login(Blogger blogger,HttpServletRequest request){
 		Subject subject=SecurityUtils.getSubject();
-		UsernamePasswordToken token=new UsernamePasswordToken(blogger.getUserName(), CryptographyUtil.md5(blogger.getPassword(), "活出快乐1234"));
+		UsernamePasswordToken token=new UsernamePasswordToken(blogger.getUserName(), CryptographyUtil.md5(blogger.getPassword(), "java1234"));
 		System.out.println(blogger.getPassword());
 		try{
 			subject.login(token); // 登录验证		

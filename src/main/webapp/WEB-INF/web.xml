@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance http://www.springmodules.org/schema/cache/springmodules-cache.xsd http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>aa</display-name>
   <welcome-file-list>
     <welcome-file>a.jsp</welcome-file>
   </welcome-file-list>
   
- <!-- shiro过滤器定义 -->
+  <!-- shiro过滤器定义 -->
 	<filter>  
 	    <filter-name>shiroFilter</filter-name>  
 	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>  
@@ -30,7 +30,6 @@
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<async-supported>true</async-supported>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -58,7 +57,6 @@
 			<param-value>classpath:spring-mvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
         <servlet-name>springMVC</servlet-name>

@@ -26,7 +26,7 @@ public class Blog {
 	private String releaseDateStr; // 发布日期的字符串 只取年和月
 	private List<String> imageList=new LinkedList<String>(); // 博客里存在的图片，主要用于列表展示的缩略图
 	public List<String> getImageList() {
-		return imageList;
+		return imageList; 
 	}
 	public void setImageList(List<String> imageList) {
 		this.imageList = imageList;
