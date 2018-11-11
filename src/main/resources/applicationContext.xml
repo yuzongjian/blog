@@ -77,7 +77,7 @@
     </bean>  
   
 	<!-- 配置事务通知属性 -->  
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">  
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <!-- 定义事务传播属性 -->  
         <tx:attributes>  
             <tx:method name="insert*" propagation="REQUIRED" />  
