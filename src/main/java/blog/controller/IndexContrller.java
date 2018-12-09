@@ -33,7 +33,6 @@ public class IndexContrller {
 
 	@Resource
 	private BlogService blogService;
-	
 	/**
 	 * 请求主页
 	 * @return
