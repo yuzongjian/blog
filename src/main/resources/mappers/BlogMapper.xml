@@ -74,8 +74,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getNextBlog" parameterType="Integer" resultMap="BlogResult">
 		SELECT * FROM t_blog WHERE id&gt;#{id} ORDER BY id ASC LIMIT 1;
 	</select>
-	
-	<insert id="add" parameterType="Blog">
-		insert into t_blog values(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyWord})
+
+	<insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Blog">
+		insert into t_blog values(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id})
 	</insert>
+	<!--<insert id="add" parameterType="Blog">-->
+		<!--insert into t_blog values(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyWord})-->
+	<!--</insert>-->
 </mapper> 

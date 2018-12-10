@@ -1,6 +1,7 @@
 package blog.lucene;
 
 import blog.domain.Blog;
+import blog.util.DateUtil;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -15,6 +16,7 @@ import javax.naming.spi.DirectoryManager;
 import java.awt.*;
 import java.awt.peer.FileDialogPeer;
 import java.nio.file.Paths;
+import java.util.Date;
 
 import static java.nio.file.Paths.*;
 
@@ -43,6 +45,10 @@ public class BlogIndex {
         doc.add(new StringField("id",String.valueOf(blog.getId()), Field.Store.YES));
         doc.add(new TextField("title",blog.getTitle(), Field.Store.YES));
         doc.add(new StringField("id",String.valueOf(blog.getId()), Field.Store.YES));
+        doc.add(new StringField("releaseDate", DateUtil.formatDate(new Date(),"yyyy-mm-dd"), Field.Store.YES));
+        doc.add(new TextField("content",blog.getContentNoTag(), Field.Store.YES));
+        IndexWriter.addDocument(doc);
+        IndexWriter.close();
 
     }
 }

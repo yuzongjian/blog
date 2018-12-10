@@ -18,10 +18,19 @@ public class Blog {
 	private Integer clickHit; // 查看次数
 	private Integer replyHit; // 回复次数
 	private String content; // 博客内容
-	
+	private String contentNoTag;//lucene用，无标签
 	private BlogType blogType; // 博客类型
 	
 	private String keyWord; // 关键字 空格隔开
+
+	public String getContentNoTag() {
+		return contentNoTag;
+	}
+
+	public void setContentNoTag(String contentNoTag) {
+		this.contentNoTag = contentNoTag;
+	}
+
 	private Integer blogCount; // 博客数量 非博客实际属性 主要是 根据发布日期归档查询数量用到
 	private String releaseDateStr; // 发布日期的字符串 只取年和月
 	private List<String> imageList=new LinkedList<String>(); // 博客里存在的图片，主要用于列表展示的缩略图
